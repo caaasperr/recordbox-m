@@ -6,6 +6,9 @@
     </div>
     <a v-if="title == 'RecordBox'" href="https://m.recordbox.org" class="title_logo">{{ title }}</a>
     <p v-else class="title">{{ title }}</p>
+    <div class="menu_list">
+      <div class="menu_item">Vinyl</div>
+    </div>
   </header>
 </template>
 
@@ -25,6 +28,10 @@ export default {
 </script>
 
 <style scoped>
+.menu_list {
+  margin-top: 10px;
+}
+
 .left_button {
   position: absolute;
   left: 5px;
