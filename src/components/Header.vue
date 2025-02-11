@@ -1,19 +1,43 @@
 <template>
   <header>
     <div class="left_button">
-      <img v-if="type === 0" src="https://m.recordbox.org/img/menu.svg" alt="Menu" />
+      <img
+        @click="isOpeningMenu = true"
+        v-if="type === 0 && isOpeningMenu === false"
+        src="https://m.recordbox.org/img/menu.svg"
+        alt="Menu"
+      />
+      <img
+        @click="isOpeningMenu = false"
+        v-if="type === 0 && isOpeningMenu === true"
+        src="https://m.recordbox.org/img/menu_close.svg"
+        alt="Close"
+      />
       <img v-else-if="type === 1" src="https://m.recordbox.org/img/back.svg" alt="Back" />
     </div>
     <a v-if="title == 'RecordBox'" href="https://m.recordbox.org" class="title_logo">{{ title }}</a>
     <p v-else class="title">{{ title }}</p>
-    <div class="menu_list">
-      <div class="menu_item">Vinyl</div>
-    </div>
   </header>
+  <div v-if="isOpeningMenu" class="menu_list flex-center">
+    <div class="menu_item">
+      <router-link @click="isOpeningMenu = false" to="/vinyl">Vinyl</router-link>
+    </div>
+    <div class="menu_item">
+      <router-link @click="isOpeningMenu = false" to="/shelves">Shelves</router-link>
+    </div>
+    <div class="menu_item end">
+      <router-link @click="isOpeningMenu = false" to="/profile">Profile</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isOpeningMenu: false,
+    }
+  },
   props: {
     title: {
       type: String,
@@ -28,8 +52,33 @@ export default {
 </script>
 
 <style scoped>
+.menu_item {
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+  /*border-bottom: 1px solid #2a2e32;*/
+}
+
+/*.menu_item.end {
+  border-bottom: none;
+}*/
+
+.menu_item a {
+  display: block;
+  text-decoration: none;
+  color: #2a2e32;
+  width: 100%;
+  height: 100%;
+}
+
 .menu_list {
-  margin-top: 10px;
+  position: fixed;
+  top: calc(2em + 13.5px);
+  width: 100%;
+  /*padding-top: 10px;
+  padding-bottom: 10px;*/
+  background-color: white;
+  border-bottom: 1px solid #2a2e32;
 }
 
 .left_button {
@@ -39,7 +88,7 @@ export default {
 }
 
 .title {
-  font-size: 1.5em;
+  font-size: 2em;
   text-decoration: none;
   color: #2a2e32;
   font-family: Bebas Neue;

@@ -1,24 +1,23 @@
-import axios from 'axios'
+import apiClient from './apiClient'
 
-const apiClient = axios.create({
-  baseURL: 'https://api.recordbox.org/api/v1',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  withCredentials: true,
-})
-
-apiClient.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('authToken')
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`
+const apiService = {
+  //Authentification
+  async login(credentials) {
+    try {
+      await apiClient.post('/auth/login', credentials)
+      if (response.status === 200) {
+        const { token } = response.data['session_id']
+        console.log(token)
+        localStorage.setItem('authToken', token)
+        return true
+      }
+    } catch (error) {
+      return false
     }
-    return config
   },
-  (error) => {
-    return Promise.reject(error)
+  async getVinyls() {
+    return await apiClient.get('/vinyls')
   },
-)
+}
 
-export default apiClient
+export default apiService

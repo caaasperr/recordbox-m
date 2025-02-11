@@ -12,4 +12,10 @@ body {
   margin: 0;
   padding: 0;
 }
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 </style>
