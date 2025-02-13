@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'https://api.recordbox.org/api/v1',
+  //baseURL: 'https://api.recordbox.org/api/v1',
+  baseURL: 'http://192.168.0.15:8080/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -10,7 +11,7 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('authToken')
+    const token = window.localStorage.getItem('authToken')
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`
     }

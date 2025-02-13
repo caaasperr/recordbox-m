@@ -4,11 +4,10 @@ const apiService = {
   //Authentification
   async login(credentials) {
     try {
-      await apiClient.post('/auth/login', credentials)
+      const response = await apiClient.post('/auth/login', credentials)
       if (response.status === 200) {
-        const { token } = response.data['session_id']
-        console.log(token)
-        localStorage.setItem('authToken', token)
+        const token = response.data.session_id
+        window.localStorage.setItem('authToken', token) // Use 'window.localStorage' instead of 'localStorage'
         return true
       }
     } catch (error) {

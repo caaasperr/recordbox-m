@@ -16,7 +16,7 @@
       <img v-else-if="type === 1" src="https://m.recordbox.org/img/back.svg" alt="Back" />
     </div>
     <a v-if="title == 'RecordBox'" href="https://m.recordbox.org" class="title_logo">{{ title }}</a>
-    <p v-else class="title">{{ title }}</p>
+    <a v-else class="title">{{ title }}</a>
   </header>
   <div v-if="isOpeningMenu" class="menu_list flex-center">
     <div class="menu_item">
@@ -73,7 +73,7 @@ export default {
 
 .menu_list {
   position: fixed;
-  top: calc(2em + 13.5px);
+  top: calc(2em + 11.5px);
   width: 100%;
   /*padding-top: 10px;
   padding-bottom: 10px;*/
