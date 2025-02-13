@@ -34,7 +34,7 @@ export default {
   methods: {
     async login() {
       const rst = await apiService.login(this.credential)
-      if (rst === true) {
+      if (rst === 200) {
         this.$router.push('/')
       } else {
         this.error = 'Login failed'
