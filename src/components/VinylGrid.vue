@@ -2,7 +2,7 @@
   <div>
     <div class="pure-g">
       <div class="pure-u-1-5">
-        <img v-for="vinyl in vinyls" :key="vinyl.id" :src="vinyl.ImageUrl" :alt="vinyl.name" />
+        <img v-for="vinyl in vinyls" :key="vinyl.ID" :src="vinyl.ImageUrl" :alt="vinyl.Name" />
       </div>
     </div>
   </div>

@@ -3,8 +3,8 @@
     <Header></Header>
     <div class="login-container">
       <p class="login-tile">{{ $t('login.title') }}</p>
-      <input id="username" v-model="credential.username" type="text" placeholder="Username" />
-      <input id="password" v-model="credential.password" type="password" placeholder="Password" />
+      <input id="username" v-model="credential.Username" type="text" placeholder="Username" />
+      <input id="password" v-model="credential.Password" type="password" placeholder="Password" />
       <div class="login-button" @click="login">{{ $t('login.button') }}</div>
       <p>
         {{ $t('login.nothaveaccount')
