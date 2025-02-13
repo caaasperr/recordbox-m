@@ -5,6 +5,9 @@
     "password": "Password",
     "login": "Login",
     "forgotPassword": "Forgot password?",
-    "register": "Register"
+    "register": "Register",
+    "button": "Login",
+    "nothaveaccount": "Don't have an account?",
+    "createone": "Create one"
   }
 }
