@@ -3,6 +3,7 @@ import axios from 'axios'
 import HomeView from '../views/Home.vue'
 import VinylView from '../views/Vinyl.vue'
 import LoginView from '../views/Login.vue'
+import ProfileView from '../views/Profile.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +24,11 @@ const router = createRouter({
       name: 'login',
       component: LoginView,
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+    },
     /*{
       path: '/about',
       name: 'about',
@@ -37,8 +43,8 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   if (to.meta.requiresAuth) {
     try {
-      //await axios.get('https://api.recordbox.org/api/v1/auth/session', { withCredentials: true })
-      await axios.get('http://192.168.0.15:8080/api/v1/auth/session', { withCredentials: true })
+      await axios.get('https://api.recordbox.org/api/v1/auth/session', { withCredentials: true })
+      //await axios.get('http://192.168.0.15:8080/api/v1/auth/session', { withCredentials: true })
       next()
     } catch (error) {
       next('/login')

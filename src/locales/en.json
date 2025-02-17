@@ -9,5 +9,26 @@
     "button": "Login",
     "nothaveaccount": "Don't have an account?",
     "createone": "Create one"
+  },
+  "profile": {
+    "created_at": "Created At:",
+    "logout": "Log out",
+    "delete_account": "DELETE ACCOUNT",
+    "modal": {
+      "title": "Delete account",
+      "suredelete": "Are you sure you want to delete your account?",
+      "enterpassword": "Enter password to delete your account.",
+      "close": "Close",
+      "remove": "Remove"
+    }
+  },
+  "vinyl": {
+    "addvinyl_modal": {
+      "title": "Add Vinyl",
+      "message": "Select method to add vinyl.",
+      "from_discogs": "From Discogs",
+      "manually": "Manually",
+      "close": "Close"
+    }
   }
 }

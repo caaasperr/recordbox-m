@@ -17,6 +17,16 @@ const apiService = {
   async getVinyls() {
     return await apiClient.get('/vinyls')
   },
+
+  async getProfile() {
+    try {
+      const response = await apiClient.get('/user')
+      return response.data
+    } catch (error) {
+      console.error('Error fetching profile:', error)
+      return
+    }
+  },
 }
 
 export default apiService
