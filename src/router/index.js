@@ -3,7 +3,9 @@ import axios from 'axios'
 import HomeView from '../views/Home.vue'
 import VinylView from '../views/Vinyl.vue'
 import LoginView from '../views/Login.vue'
+import SignUpView from '../views/SignUp.vue'
 import ProfileView from '../views/Profile.vue'
+import { nextTick } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,17 +19,25 @@ const router = createRouter({
       path: '/vinyl',
       name: 'vinyl',
       component: VinylView,
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, title: 'Vinyl - RecordBox' },
     },
     {
       path: '/login',
       name: 'login',
       component: LoginView,
+      meta: { title: 'Login - RecordBox' },
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignUpView,
+      meta: { title: 'Sign Up - RecordBox' },
     },
     {
       path: '/profile',
       name: 'profile',
       component: ProfileView,
+      meta: { requiresAuth: true },
     },
     /*{
       path: '/about',
@@ -52,6 +62,13 @@ router.beforeEach(async (to, from, next) => {
   } else {
     next()
   }
+})
+
+router.afterEach((to, from) => {
+  const title = to.meta.title === undefined ? 'RecordBox' : to.meta.title
+  nextTick(() => {
+    document.title = title
+  })
 })
 
 export default router

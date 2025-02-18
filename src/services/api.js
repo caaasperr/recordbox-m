@@ -14,6 +14,17 @@ const apiService = {
       return false
     }
   },
+  async logout() {
+    try {
+      const response = await apiClient.post('/auth/logout')
+      if (response.status === 200) {
+        window.localStorage.removeItem('authToken')
+        return true
+      }
+    } catch (error) {
+      return false
+    }
+  },
   async getVinyls() {
     return await apiClient.get('/vinyls')
   },

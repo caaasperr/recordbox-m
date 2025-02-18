@@ -4,16 +4,16 @@
       <img
         @click="isOpeningMenu = true"
         v-if="type === 0 && isOpeningMenu === false"
-        src="https://m.recordbox.org/img/menu.svg"
+        src="../assets/menu.svg"
         alt="Menu"
       />
       <img
         @click="isOpeningMenu = false"
         v-if="type === 0 && isOpeningMenu === true"
-        src="https://m.recordbox.org/img/menu_close.svg"
+        src="../assets/menu_close.svg"
         alt="Close"
       />
-      <img v-else-if="type === 1" src="https://m.recordbox.org/img/back.svg" alt="Back" />
+      <img v-else-if="type === 1" src="..assets/back.svg" alt="Back" />
     </div>
     <a v-if="title == 'RecordBox'" href="https://m.recordbox.org" class="title_logo">{{ title }}</a>
     <a v-else class="title">{{ title }}</a>
