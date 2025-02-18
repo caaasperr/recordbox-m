@@ -13,7 +13,7 @@
         src="../assets/menu_close.svg"
         alt="Close"
       />
-      <img v-else-if="type === 1" src="..assets/back.svg" alt="Back" />
+      <img v-else-if="type === 1" src="../assets/back.svg" alt="Back" />
     </div>
     <a v-if="title == 'RecordBox'" href="https://m.recordbox.org" class="title_logo">{{ title }}</a>
     <a v-else class="title">{{ title }}</a>
